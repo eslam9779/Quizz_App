@@ -1,0 +1,43 @@
+.header{
+
+    font-family: "Quicksand", sans-serif ;
+}
+.header_btn{
+
+    border:none !important;
+    color: var(--thirdColor) !important;
+    font-size: 15px;
+}
+
+.header_btn:hover{
+
+    background-color: var(--lightColor) !important;
+    color: var(--mainColor) !important;
+}
+
+.hover-menu {
+    display: none; 
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .hover-menu-item {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .hover-menu-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Show the menu on hover */
+  .menu-container:hover .hover-menu {
+    display: block;
+  }
+  
