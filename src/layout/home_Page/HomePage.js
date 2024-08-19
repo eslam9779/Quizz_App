@@ -4,8 +4,8 @@ import {Header,Home} from '../../components/index';
 const HomePage = () => {
   return (
     <div className=''>
-      <Header/>
-      {/* <Home/>  */}
+      <Header visable={true}/>
+      <Home/> 
     </div>
   )
 }

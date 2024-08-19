@@ -1,0 +1,235 @@
+.home {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+    font-family: "Quicksand, sans-serif";
+    height: 100%;
+    padding: 0 20px;
+}
+
+.home_paragraph {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--thirdColor);
+    /* margin-top: 1rem; */
+    
+}
+
+.home_paragraph_p {
+
+    font-family: "Poppins, sans-serif" !important;
+    font-weight: bold;
+    font-size: 52px;
+    line-height: 68px;
+    /* letter-spacing: 3px; */
+
+}
+
+.home_paragraph_span {
+
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 30px;
+    color: var(--mainColor) !important;
+    margin-left: 5px;
+
+}
+
+.home_buttons {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-top: 20px;
+
+
+}
+
+.home_buttons_btn1,
+.home_buttons_btn2 {
+
+    width: 225px;
+    height: 68px;
+    border-radius: 8px !important;
+    box-sizing: border-box;
+    /* padding: 20px !important ; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.home_buttons_btn1 {
+
+    background-color: var(--mainColor) !important;
+    border: none !important;
+    box-sizing: border-box;
+    line-height: 1px !important;
+    box-shadow: 0 5px #6c4298;
+    
+
+
+}
+
+.home_buttons_btn1 p {
+
+    font-family: 'Poppins", sans-serif' !important;
+    font-size: 12px;
+    font-weight: 600;
+    color: #CFBBE6;
+    letter-spacing: 1px;
+}
+
+.home_buttons_btn1 span {
+
+
+    font-family: "Quicksand", sans-serif !important;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    line-height: 18px;
+    
+}
+
+
+.home_buttons_btn2 {
+
+    background-color: var(--secondaryColor) !important;
+    border: none !important;
+    margin-inline: 15px;
+    box-shadow: 0 5px #ccc;
+    line-height: 1px !important;
+    /* padding-inline:  50px  !important; */
+
+
+}
+
+.home_buttons_btn2 p {
+
+    font-family: 'Poppins", sans-serif' !important;
+    font-size: 12px;
+    font-weight: 600;
+    color: #997495;
+    letter-spacing: 1px;
+}
+
+.home_buttons_btn2 span {
+
+
+    font-family: "Quicksand", sans-serif !important;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--thirdColor);
+    letter-spacing: 1px;
+    line-height: 10px;
+}
+
+
+.home_img {
+
+    width: 100%;
+    border: none !important;
+}
+
+.home_img-iframe {
+
+    width: 100%;
+    height: 100%;
+    border: 0 !important;
+}
+
+iframe {
+
+    height: 70vh !important;
+}
+
+@media screen and (max-width: 995px) {
+
+        .home{
+
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 0 !important;
+            
+        }
+        .home_paragraph{
+
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            letter-spacing: normal !important;
+
+        }
+        
+}
+
+@media screen and (max-width: 769px) {
+
+    .home_paragraph_p{
+
+        font-size: 40px !important;
+    }
+    .home_buttons{
+
+        flex-direction: column;
+        gap: 20px;
+        width: 80%;
+        
+    }
+    .home_buttons_btn1 , .home_buttons_btn2{
+
+        width: 100%;
+    }
+   
+  
+}
+@media screen and (max-width: 560px) {
+
+  .home{
+    padding: 0 20px !important;
+    margin-top: 2rem !important;
+  }
+  .home_paragraph_p{
+
+    font-size: 25px !important;
+    line-height: 30px;
+    font-family: 400;
+  }
+  .home_paragraph_span {
+    font-size: 15px;
+  }
+   
+  
+}
+
+@media screen and (max-width: 373px) {
+
+    .home{
+        gap: 5px !important;
+    }
+     .home_buttons_btn1 ,.home_buttons_btn2{
+
+        width: 80%;
+     }
+     .home_buttons_btn1 p ,.home_buttons_btn2 p{
+
+        font-size: 9px;
+        line-height: 10px;
+     }
+     .home_buttons_btn1 span ,.home_buttons_btn2 span{
+
+        font-size: 12px;
+        margin-bottom: 10px;
+        line-height: 10px;
+     }
+    
+  }

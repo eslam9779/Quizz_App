@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom';
 import { getAllCategories } from '../../services/api/apis';
 import { Loader } from '../index';
 import './header.css'
-const Header = () => {
+import { IoIosArrowForward } from "react-icons/io";
+import { SiOsgeo } from "react-icons/si";
+import { LiaClipboardListSolid } from "react-icons/lia";
+
+const Header = (props) => {
 
   const [allCategories, setAllCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  
   useEffect(() => {
 
     setIsLoading(true);
@@ -25,19 +29,27 @@ const Header = () => {
   }, [])
 
   const HoverMenu = () => (
-    <div className="hover-menu ">
-      {allCategories.filter(category => category.id >= 20 && category.id < 26).map(category => (
-       <>
+    <div className="hover-menu mt-1">
+      {allCategories.filter(category => category.id >= 21 && category.id < 25).map((category, index) => (
+        <div key={index}>
           <Link key={category.id} to={`/category/${category.id}`} className="hover-menu-item">
-            {category.name}
+            <div className='d-flex mx-2 align-item-center'>
+              <div className='mx-2'> <SiOsgeo color='#8854C0'/></div>
+              <div className='' > {category.name} </div>
+            </div>
           </Link>
-          <hr/>
+          <hr />  
 
-       </>
+        </div>
       ))}
       <NavDropdown.Divider />
       <NavDropdown.Item as={Link} to="/category">
-        Show All
+        <div className='d-flex mx-2 align-item-center show_all'>
+          <div className='mx-2'> <LiaClipboardListSolid color='#8854C0'  size={"22"} /></div>
+          <div className='' > {"show All"}</div>
+        </div>
+        <hr />
+
       </NavDropdown.Item>
     </div>
   );
@@ -51,20 +63,26 @@ const Header = () => {
             <Navbar.Brand as={Link} to="/">
               <img src={navIcon} alt="Navigation Icon" />
             </Navbar.Brand>
+              {props.visable==true ?
+              <>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto"></Nav>
               <Nav>
                 <div className="menu-container">
                   <Button variant="outline-primary" className='mt-2 header_btn' >Categories</Button>
-    
-                  {HoverMenu()}
+
+                   {HoverMenu()}
                 </div>
                 <Nav.Link as={Link} to="/category">
-                  <Button variant="primary">See All</Button>
+                  <Button variant="primary" className='header_trynow'>Try It Now<IoIosArrowForward />                  </Button>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
+            </>
+            :
+            <></>
+              }
           </Navbar>
         </Container>
       </div>

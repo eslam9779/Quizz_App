@@ -6,7 +6,7 @@
 
     border:none !important;
     color: var(--thirdColor) !important;
-    font-size: 15px;
+    font-size: 17px !important;
 }
 
 .header_btn:hover{
@@ -14,26 +14,52 @@
     background-color: var(--lightColor) !important;
     color: var(--mainColor) !important;
 }
+.header_trynow{
+
+    background-color: var(--mainColor)!important;
+    border: none !important;  
+    font-size: 17px !important; 
+}
+.show_all{
+
+    /* font-weight: bold; */
+    font-size: 17px;
+    padding: 2px 5px;
+
+}
+.show_all:hover{
+
+   background-color: #ddd;
+
+}
 
 .hover-menu {
+
     display: none; 
     position: absolute;
     background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* z-index: 1000;  */
+    padding: 2px 5px;
+    width: 250px;
+    line-height:16px;
+
+
   }
   
   .hover-menu-item {
     display: block;
-    padding: 10px;
+    padding: 5px;
+    margin-top:5px ;
     text-decoration: none;
     color: black;
   }
   
   .hover-menu-item:hover {
-    background-color: #f8f9fa;
+    background-color: #ddd;
   }
   
   /* Show the menu on hover */
