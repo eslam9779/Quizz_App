@@ -46,7 +46,7 @@ const Header = (props) => {
       <NavDropdown.Item as={Link} to="/category">
         <div className='d-flex mx-2 align-item-center show_all'>
           <div className='mx-2'> <LiaClipboardListSolid color='#8854C0'  size={"22"} /></div>
-          <div className='' > {"show All"}</div>
+          <div style={{fontWeight:"600"}}> show All</div>
         </div>
         <hr />
 

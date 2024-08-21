@@ -136,6 +136,8 @@
 
     width: 100%;
     border: none !important;
+        height: 70vh !important;
+
 }
 
 .home_img-iframe {

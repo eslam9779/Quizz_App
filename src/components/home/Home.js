@@ -3,7 +3,7 @@ import './home.css';
 import { Button, Container } from 'react-bootstrap';
 import { IoIosArrowForward } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
-
+import onlineTest from '../../assets/imgs/Online test.gif'
 const Home = () => {
 
   const navigation = useNavigate();
@@ -42,6 +42,7 @@ const Home = () => {
             className='home_img-iframe'
 
           />
+          {/* <img src={onlineTest}/> */}
         </div>
       </div>
     </Container>

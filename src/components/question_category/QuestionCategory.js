@@ -1,39 +1,61 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { getAllCategories, getQuestionDetailsForCategory } from '../../services/api/apis';
-import './questionCategories.css'
+import './questionCategories.css';
 import { Col, Container, Row } from 'react-bootstrap';
-import logo from '../../assets/imgs/categoryHeader.png'
+import logo from '../../assets/imgs/categoryHeader.png';
 import { CiSearch } from 'react-icons/ci';
 import { useNavigate } from 'react-router-dom';
 import { Loader } from '../index';
 
 const QuestionCategory = () => {
-
   const navigate = useNavigate();
   const [allCategories, setAllCategories] = useState([]);
+  const [filteredCategories, setFilteredCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-
-    setIsLoading(true);
-    let response = getAllCategories();
-    response.then((res) => {
-
-      if (res.status == 200) {
-        console.log(res)
-        setAllCategories(res.data.trivia_categories)
+    const fetchCategoriesAndDetails = async () => {
+      setIsLoading(true);
+  
+      try {
+        const response = await getAllCategories();
+  
+        if (response.status === 200) {
+          const categories = response.data.trivia_categories;
+  
+          const categoriesWithDetails = await Promise.all(
+            categories.map(async (category) => {
+              const details = await getQuestionDetailsForCategory(category);
+              category.details = details.data.category_question_count;
+              return category;
+            })
+          );
+  
+          setAllCategories(categoriesWithDetails);
+          setFilteredCategories(categoriesWithDetails); // Initialize filtered categories
+        }
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
-    })
+    };
+  
+    fetchCategoriesAndDetails();
   }, []);
 
-
-
   const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+    const searchValue = event.target.value.toLowerCase();
+    setSearchTerm(searchValue);
 
+    const filtered = allCategories.filter(category => 
+      category.name.toLowerCase().includes(searchValue)
+    );
+
+    setFilteredCategories(filtered);
   };
+
   return (
     <>
       {isLoading && <Loader />}
@@ -54,7 +76,6 @@ const QuestionCategory = () => {
             <Col className='d-flex justify-content-center' >
               <div className="inputGroup">
                 <CiSearch color='#8854C0' className='search-icon' />
-
                 <input
                   type="text"
                   required=""
@@ -79,10 +100,9 @@ const QuestionCategory = () => {
       </Row>
       <Container>
         <Row>
-          {allCategories.map(category =>
-            <Col className='mt-5'>
-              <div className="card">
-
+          {filteredCategories.map(category =>
+            <Col className='mt-5' key={category.id}>
+              <div className="card" onClick={() => navigate("/category/" + category.id)}>
                 <div className="bottom-section">
                   <span className="title">{category.name}</span>
                   <div className="row row1">
@@ -109,5 +129,4 @@ const QuestionCategory = () => {
   )
 }
 
-export default QuestionCategory
-
+export default QuestionCategory;
