@@ -11,7 +11,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/category" element={<QuestionCategory />} />
           <Route path="/category/:categoryId" element={<QuestionTypes/>} />
-          <Route path="/category/:categoryId/:query" element={<QuizBuilder/>} />
+          <Route path="/category/:categoryId/:amount/:difficulty/:type" element={<QuizBuilder/>} />
         </Routes>
       </Router>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Container, Form, Button } from 'react-bootstrap';
 
 const QuestionTypes = () => {
@@ -8,6 +8,7 @@ const QuestionTypes = () => {
   const [amount, setAmount] = useState(10); 
   const [selectedDifficulty, setSelectedDifficulty] = useState('easy');
   const [selectedType, setSelectedType] = useState('multiple');
+  const navigate = useNavigate();
 
   const difficulty = [
     { option: 'Easy', value: 'easy' },
@@ -23,13 +24,12 @@ const QuestionTypes = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = {
-      categoryId,
+      category: parseInt(categoryId),
       amount,
       difficulty: selectedDifficulty,
       type: selectedType,
     };
-    console.log(formData);
-    // You can process the formData here
+    navigate(`/category/${categoryId}/${formData.amount}/${formData.difficulty}/${formData.type}`);
   };
 
   return (
