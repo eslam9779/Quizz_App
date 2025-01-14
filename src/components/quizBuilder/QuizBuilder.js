@@ -52,7 +52,7 @@ const QuizBuilder = () => {
         const response = await fetchQuestions(categoryId, amount, difficulty, type);
         if (response.status === 200) {
           setQuestions(response.data.results);
-          debugger
+          
         }
       } catch (error) {
         setError("Error fetching questions: " + error.message);
